@@ -21,12 +21,11 @@ function Picture({ depth = 1, odd = true, color, top, src, index }) {
     height: "200px",
     transform: `scale(${depth * depth}) translate(${left}%, ${top}%)`,
     opacity: rangeProp,
-    background: color,
     filter: `blur(${blur}px)`,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundImage: `url(${src})`,
+    background: `url(${src}) ${color}`,
   };
 
   return (

@@ -1,5 +1,3 @@
-import { useCallback, useState } from "react";
-
 import "./App.css";
 
 import Canvas from "./components/canvas";
@@ -15,7 +13,7 @@ const list = data?.sliders.map((item, index) => ({
 
 function App() {
   const [scrollPosition, setScrollPosition] = useAnimatedState(
-    0,
+    0.5,
     1000,
     "easeInOutCubic"
   );
@@ -27,12 +25,16 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="range"
-        min="0"
-        max="100"
-        onChange={(evt) => updateScrollPosition(evt)}
-      />
+      <div>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          onChange={(evt) => updateScrollPosition(evt)}
+        />
+        {scrollPosition.toFixed(2)}
+      </div>
+
       <header className="App-header">
         <Canvas list={list} proportion={scrollPosition} />
       </header>

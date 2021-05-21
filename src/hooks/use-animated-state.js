@@ -64,7 +64,7 @@ function useAnimatedState(initValue, time, easing = "linear") {
 
       loop();
     },
-    [value, time]
+    [value, time, easing]
   );
 
   return [value, setAnimatedFunction];
